@@ -24,7 +24,6 @@ public class ItemStackTest implements CommandExecutor {
             String itemName = args[0];
             StringBuilder nameBuilder = new StringBuilder();
 
-            // Build the item name from the arguments
             for (int i = 1; i < args.length - 1; i++) {
                 nameBuilder.append(args[i]).append(" ");
             }
