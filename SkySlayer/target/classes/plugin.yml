@@ -1,0 +1,20 @@
+name: SkySlayer
+version: '1.0'
+main: de.stunni.Main
+api-version: 1.19
+
+commands:
+  test:
+    description: test command
+  gm:
+    description: change your gamemode
+    aliases:
+      - gamemode
+  giveitem:
+    description: give yourself an item with own name and amount
+  vbucks:
+    description: troll
+  repair:
+    description: repair an item
+  help:
+    description: send a help message
