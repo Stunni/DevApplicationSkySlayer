@@ -2,10 +2,7 @@ package de.stunni;
 
 import de.stunni.Utils.ScoreboardUtils;
 import de.stunni.commands.*;
-import de.stunni.listeners.AsyncChat;
-import de.stunni.listeners.InventoryClickTroll;
-import de.stunni.listeners.Join;
-import de.stunni.listeners.KeepWeather;
+import de.stunni.listeners.*;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -30,11 +27,13 @@ public final class Main extends JavaPlugin {
         registerCommand("vbucks", new FreeVBucks());
         registerCommand("repair", new Repair());
         registerCommand("help", new HelpCommand());
+        registerCommand("setshop", new SetShop());
 
         pm.registerEvents(new Join(), this);
         pm.registerEvents(new KeepWeather(), this);
         pm.registerEvents(new AsyncChat(), this);
         pm.registerEvents(new InventoryClickTroll(), this);
+        pm.registerEvents(new ShopEvent(), this);
 
 
 
