@@ -18,3 +18,5 @@ commands:
     description: repair an item
   help:
     description: send a help message
+  setshop:
+    description: set shop
