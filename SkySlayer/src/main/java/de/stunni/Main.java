@@ -13,9 +13,13 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
-    public static final Component header = MiniMessage.miniMessage().deserialize("\n<rainbow><bold>STUNNI TEST SERVER\n");
-    public static final Component footer = MiniMessage.miniMessage().deserialize("\n<green>Du bist derzeit auf dem Test Server von <gradient:blue:red><bold>stunni\n");
-    public static final String prefix = "<dark_gray>[<rainbow>STUNNI<dark_gray>]<green> ";
+    private static Main instance;
+    public static Component header = MiniMessage.miniMessage().deserialize("\n<rainbow><bold>STUNNI TEST SERVER\n");
+    public static Component footer = MiniMessage.miniMessage().deserialize("\n<green>Du bist derzeit auf dem Test Server von <gradient:blue:red><bold>stunni\n");
+    public static String prefix = "<dark_gray>[<rainbow>STUNNI<dark_gray>]<green> ";
+    public static Component argsError = MiniMessage.miniMessage().deserialize(prefix+"<color:red>Unzulässige Argumente bzw. Argumentenlänge");
+    public static Component notPlayer = MiniMessage.miniMessage().deserialize(prefix+"<color:red>Du musst ein Spieler sein um diesen Command ausführen zu können");
+    public static Component noPerms = MiniMessage.miniMessage().deserialize(prefix+"<color:red>Du hast keine Berechtigung für diesen Command");
 
     @Override
     public void onEnable() {
@@ -26,8 +30,15 @@ public final class Main extends JavaPlugin {
         registerCommand("giveitem", new ItemStackTest());
         registerCommand("vbucks", new FreeVBucks());
         registerCommand("repair", new Repair());
-        registerCommand("help", new HelpCommand());
+        registerCommand("help", new HelpCommand_OUT());
         registerCommand("setshop", new SetShop());
+        registerCommand("feed", new Feed());
+        registerCommand("heal", new Heal());
+        registerCommand("tp", new Teleport());
+        registerCommand("tpall", new Teleport());
+        registerCommand("tphere", new Teleport());
+        registerCommand("editsign", new EditSign());
+        registerCommand("werbung", new Werbung());
 
         pm.registerEvents(new Join(), this);
         pm.registerEvents(new KeepWeather(), this);
@@ -52,6 +63,13 @@ public final class Main extends JavaPlugin {
 
     public void registerCommand(String command, CommandExecutor executor){
         getCommand(command).setExecutor(executor);
+    }
+
+    public static Main getInstance(){
+        if(instance == null){
+            instance = new Main();
+        }
+        return instance;
     }
 
     @Override

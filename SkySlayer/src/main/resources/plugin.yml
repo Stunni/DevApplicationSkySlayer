@@ -20,3 +20,21 @@ commands:
     description: send a help message
   setshop:
     description: set shop
+  feed:
+    description: feed yourself
+  heal:
+    description: heal yourself
+  tp:
+    description: teleport yourself to someone or someone to someone else
+  tpall:
+    description: teleport everyone to your location
+  tphere:
+    description: teleport someone to your location
+  editsign:
+    description: edit a sign
+    aliases:
+      - sign
+      - es
+      - esign
+  werbung:
+    description: werbe für etwas

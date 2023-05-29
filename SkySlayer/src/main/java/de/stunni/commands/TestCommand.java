@@ -26,7 +26,6 @@ public class TestCommand implements CommandExecutor {
 
 
 
-
 //                Component nameGradient = MiniMessage.miniMessage().deserialize("<gradient:blue:red>"+name);
 //                p.sendMessage(nameGradient);
 //                p.displayName(nameGradient);
